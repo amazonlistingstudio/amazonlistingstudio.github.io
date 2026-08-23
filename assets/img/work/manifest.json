@@ -1,0 +1,179 @@
+{
+ "christmas-garland": {
+  "slug": "christmas-garland",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "facial-massager": {
+  "slug": "facial-massager",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "geemy-crimper": {
+  "slug": "geemy-crimper",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "magnetic-power-bank": {
+  "slug": "magnetic-power-bank",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "mens-accessories": {
+  "slug": "mens-accessories",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "pressure-washer": {
+  "slug": "pressure-washer",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg"
+  ]
+ },
+ "smartwatch": {
+  "slug": "smartwatch",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "trash-bags": {
+  "slug": "trash-bags",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "vicalina": {
+  "slug": "vicalina",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ },
+ "zont": {
+  "slug": "zont",
+  "main": "01.jpg",
+  "slides": [
+   "02.jpg",
+   "03.jpg",
+   "04.jpg",
+   "05.jpg",
+   "06.jpg"
+  ],
+  "before": [
+   "before-02.jpg",
+   "before-03.jpg",
+   "before-04.jpg",
+   "before-05.jpg",
+   "before-06.jpg"
+  ]
+ }
+}
