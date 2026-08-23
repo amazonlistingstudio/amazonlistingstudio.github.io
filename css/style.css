@@ -833,3 +833,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
   .hero .panel:has(.stage-portrait) .h-xl{font-size:clamp(42px,9vw,72px)}
 }
+
+/* ---------- v12: фото тянем вниз и вширь, текст оставляем как был ---------- */
+
+/* линейка над маркетплейсами больше не режет фото: обрезаем её слева */
+.markets{border-top:0;position:relative;z-index:5}
+.markets::before{
+  content:"";position:absolute;top:0;left:0;width:min(46%,560px);height:1px;
+  background:var(--line);
+}
+
+/* текст возвращаем к исходному размеру */
+.hero .panel:has(.stage-portrait) .h-xl{font-size:clamp(42px,7.6vw,112px)}
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(58%,660px)}
+.hero .panel:has(.stage-portrait) .sub{max-width:34ch}
+
+/* фото крупнее: выходит ниже нижнего края панели, лицо и карточки на месте */
+.stage-portrait{width:82%;top:0;bottom:-22%;align-items:flex-start}
+.hero-portrait{height:100%;object-position:top right}
+
+@media(max-width:900px){
+  .hero .panel:has(.stage-portrait) .h-xl{font-size:clamp(42px,9vw,72px)}
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
+  .stage-portrait{width:auto;top:auto;bottom:auto;align-items:flex-end}
+  .hero-portrait{height:auto;object-position:bottom center}
+  .markets::before{width:100%}
+}
