@@ -665,3 +665,62 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .aplus-item figcaption{color:var(--accent)}
 .phase-switch{display:flex;align-items:center;gap:0}
+
+/* ---------- v9: A+ выше, прокрутка видна всегда ---------- */
+.aplus-frame{
+  height:clamp(430px,58vh,640px);
+  border-radius:var(--r-lg);overflow:hidden auto;
+  scrollbar-width:none;                 /* прячем системный, рисуем свой */
+}
+.aplus-frame::-webkit-scrollbar{display:none}
+
+/* собственный рельс прокрутки: виден всегда, на маке системный в покое пропадает */
+.aplus-rail{
+  position:absolute;top:14px;bottom:48px;right:12px;width:6px;z-index:4;
+  border-radius:100px;background:rgba(255,255,255,.13);pointer-events:none;
+}
+.aplus-rail i{
+  position:absolute;left:0;right:0;top:0;height:22%;
+  border-radius:100px;background:var(--accent);
+  transition:top .08s linear,height .12s ease;
+}
+
+/* подсказка снизу */
+.aplus-cue{
+  position:absolute;left:50%;bottom:56px;transform:translateX(-50%);z-index:5;
+  display:inline-flex;align-items:center;gap:7px;pointer-events:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--accent);color:var(--on-accent);padding:9px 17px;border-radius:100px;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);transition:opacity .3s,transform .3s;
+}
+.aplus-cue b{font-size:13px;line-height:1;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(2px)}}
+.aplus-item.scrolled .aplus-cue{opacity:0;transform:translateX(-50%) translateY(6px)}
+
+/* растушёвка под подсказкой */
+.aplus-item::after{
+  left:0;right:0;bottom:34px;height:110px;
+  background:linear-gradient(to bottom,rgba(6,6,6,0),rgba(6,6,6,.88));
+  transition:opacity .3s;
+}
+.aplus-item.scrolled::after{opacity:.45}
+.aplus-item figcaption{color:var(--grey-2)}
+
+@media(prefers-reduced-motion:reduce){.aplus-cue b{animation:none}}
+
+/* слайды — второй, большой кликабельный ярлык того же переключателя */
+.phase-strip{cursor:pointer}
+.ph-cell{transition:box-shadow .25s}
+.phase-strip:hover .ph-cell{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 45%,transparent)}
+
+/* пока идёт автопоказ — подсвечиваем переключатель, чтобы взгляд ушёл туда */
+.phase.demo .toggle{
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent),
+             0 0 30px color-mix(in srgb,var(--accent) 30%,transparent);
+}
+.phase.demo .phase-hint{opacity:1}
+.phase-hint{transition:opacity .3s}
+.aplus-frame{scroll-behavior:auto}
+
+/* рельс читается как скроллбар даже без JS: бегунок имеет осмысленный размер сразу */
+.aplus-rail i{height:24%}

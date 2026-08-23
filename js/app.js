@@ -73,17 +73,73 @@
     set(52);
   });
 
+  /* A+ panels scroll inside themselves, so they get their own visible rail:
+     macOS hides overlay scrollbars at rest and the affordance was being missed */
+  document.querySelectorAll(".aplus-item").forEach(function (item) {
+    var frame = item.querySelector(".aplus-frame");
+    var thumb = item.querySelector(".aplus-rail i");
+    if (!frame || !thumb) return;
+
+    var sync = function () {
+      var travel = frame.scrollHeight - frame.clientHeight;
+      if (travel <= 0) {
+        item.querySelector(".aplus-rail").style.display = "none";
+        return;
+      }
+      var ratio = frame.clientHeight / frame.scrollHeight;
+      var pct = frame.scrollTop / travel;
+      thumb.style.height = Math.max(12, ratio * 100).toFixed(1) + "%";
+      thumb.style.top = (pct * (100 - Math.max(12, ratio * 100))).toFixed(1) + "%";
+      item.classList.toggle("scrolled", frame.scrollTop > 24);
+    };
+
+    frame.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync);
+    var img = frame.querySelector("img");
+    if (img && !img.complete) img.addEventListener("load", sync);
+    sync();
+  });
+
   /* flip a whole listing between its before and after versions */
   document.querySelectorAll(".phase").forEach(function (phase) {
     var buttons = phase.querySelectorAll(".toggle button");
+    var strip = phase.querySelector(".phase-strip");
+
+    var set = function (state) {
+      phase.dataset.state = state;
+      buttons.forEach(function (x) {
+        x.setAttribute("aria-pressed", String(x.dataset.v === state));
+      });
+    };
+
     phase.querySelector(".toggle").addEventListener("click", function (e) {
       var b = e.target.closest("button");
-      if (!b) return;
-      phase.dataset.state = b.dataset.v;
-      buttons.forEach(function (x) {
-        x.setAttribute("aria-pressed", String(x === b));
-      });
+      if (b) set(b.dataset.v);
     });
+
+    /* the slides themselves are a second, larger hit target for the same switch */
+    if (strip) {
+      strip.addEventListener("click", function () {
+        set(phase.dataset.state === "after" ? "before" : "after");
+      });
+    }
+
+    /* show the interaction once instead of describing it: on first sight the
+       listing flips to Before and back, so the control explains itself */
+    if (reduce || !("IntersectionObserver" in window)) return;
+    var demoed = false;
+    var demo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || demoed) return;
+        demoed = true;
+        demo.disconnect();
+        phase.classList.add("demo");
+        setTimeout(function () { set("before"); }, 520);
+        setTimeout(function () { set("after"); }, 1900);
+        setTimeout(function () { phase.classList.remove("demo"); }, 2400);
+      });
+    }, { threshold: 0.35 });
+    demo.observe(phase);
   });
 
   /* accent preview switcher, temporary review tool */
