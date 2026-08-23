@@ -608,3 +608,60 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero-portrait{max-height:min(52vh,420px)}
   .hero .panel{min-height:0}
 }
+
+/* ---------- v8 ---------- */
+
+/* 1. портрет крупнее, заполняет воздух */
+.hero-grid:has(.stage-portrait){grid-template-columns:.86fr 1.14fr;gap:clamp(8px,1.2vw,20px)}
+.hero-portrait{max-height:clamp(480px,82vh,860px)}
+.hero .panel{min-height:clamp(600px,90vh,900px)}
+@media(max-width:900px){
+  .hero-grid:has(.stage-portrait){grid-template-columns:1fr}
+  .hero-portrait{max-height:min(56vh,460px)}
+  .hero .panel{min-height:0}
+}
+
+/* 2. переключатель до/после — крупный и очевидный */
+.phase-head{margin-bottom:18px}
+.toggle{
+  padding:5px;border:1px solid var(--line);background:var(--card);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 9%,transparent);
+}
+.toggle button{
+  padding:13px 30px;font-size:15px;font-weight:600;letter-spacing:-.01em;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.toggle button::before{
+  content:"";width:9px;height:9px;border-radius:50%;
+  border:1.5px solid currentColor;opacity:.45;transition:opacity .2s,background .2s;
+}
+.toggle button[aria-pressed="true"]::before{opacity:1;background:currentColor}
+.phase-hint{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-right:14px;
+}
+.phase-hint::after{content:"\2192";font-size:13px}
+@media(max-width:620px){
+  .toggle button{padding:12px 22px;font-size:14px}
+  .phase-hint{display:none}
+}
+
+/* 4. A+ вдвое ниже, прокрутка внутри, край подсвечен */
+.aplus-frame{
+  position:relative;border-radius:var(--r-lg);overflow:hidden auto;background:var(--card);
+  height:clamp(340px,42vh,470px);
+  scrollbar-color:var(--accent) rgba(255,255,255,.08);scrollbar-width:auto;
+}
+.aplus-frame::-webkit-scrollbar{width:11px}
+.aplus-frame::-webkit-scrollbar-track{background:rgba(255,255,255,.07)}
+.aplus-frame::-webkit-scrollbar-thumb{background:var(--accent);border-radius:100px;border:3px solid var(--card)}
+.aplus-item img{border-radius:0}
+.aplus-item{position:relative}
+/* растушёвка снизу: видно, что контент продолжается */
+.aplus-item::after{
+  content:"";position:absolute;left:0;right:11px;bottom:34px;height:70px;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(6,6,6,0),rgba(6,6,6,.92));
+  border-radius:0 0 var(--r-lg) var(--r-lg);
+}
+.aplus-item figcaption{color:var(--accent)}
+.phase-switch{display:flex;align-items:center;gap:0}
