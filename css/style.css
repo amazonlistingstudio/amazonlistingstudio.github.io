@@ -724,3 +724,50 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* рельс читается как скроллбар даже без JS: бегунок имеет осмысленный размер сразу */
 .aplus-rail i{height:24%}
+
+/* ---------- v10: портрет ещё крупнее + логотипы маркетплейсов ---------- */
+
+.hero-grid:has(.stage-portrait){grid-template-columns:.76fr 1.24fr;gap:clamp(4px,.8vw,16px)}
+.hero-portrait{max-height:clamp(520px,88vh,960px)}
+.hero .panel{min-height:clamp(620px,94vh,980px)}
+@media(max-width:900px){
+  .hero-grid:has(.stage-portrait){grid-template-columns:1fr}
+  .hero-portrait{max-height:min(58vh,480px)}
+  .hero .panel{min-height:0}
+}
+
+/* маркетплейсы: настоящие знаки вместо голого текста */
+.markets{gap:clamp(20px,3.2vw,46px);align-items:center}
+.mk{
+  display:inline-flex;align-items:center;gap:7px;
+  color:var(--grey-2);transition:color .25s,opacity .25s;opacity:.72;
+}
+.mk:hover{opacity:1}
+.mk-word{font-weight:700;font-size:clamp(15px,1.45vw,21px);letter-spacing:-.03em;line-height:1}
+
+/* amazon: слово + фирменная улыбка под ним */
+.mk-amazon{flex-direction:column;align-items:flex-start;gap:2px;color:var(--white)}
+.mk-amazon .mk-smile{width:clamp(58px,5.6vw,80px);height:auto;color:#FF9900;margin-top:-2px;align-self:center}
+.mk-amazon:hover{color:#fff}
+
+/* ebay: четыре цвета */
+.mk-ebay{gap:0;opacity:.85}
+.mk-ebay i{font-style:normal;font-weight:800;font-size:clamp(17px,1.7vw,25px);letter-spacing:-.04em;line-height:1}
+.mk-ebay:hover{opacity:1}
+
+/* shopify */
+.mk-shopify .mk-bag{width:clamp(16px,1.5vw,21px);height:auto;flex:none}
+.mk-shopify .mk-word{color:#95BF47}
+
+/* etsy */
+.mk-etsy .mk-word{color:#F1641E;font-weight:800}
+
+/* walmart */
+.mk-walmart .mk-spark{width:clamp(15px,1.4vw,20px);height:auto;flex:none}
+.mk-walmart .mk-word{color:#A7C7E7}
+
+@media(max-width:620px){
+  .markets{gap:18px}
+  .mk-word{font-size:15px}
+  .mk-ebay i{font-size:17px}
+}
