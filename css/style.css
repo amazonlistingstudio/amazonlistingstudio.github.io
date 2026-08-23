@@ -771,3 +771,65 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .mk-word{font-size:15px}
   .mk-ebay i{font-size:17px}
 }
+
+/* ---------- v11: портрет во всю высоту поверх текста, как в референсе ---------- */
+
+.hero .panel{position:relative;overflow:hidden;min-height:clamp(640px,96vh,1020px)}
+.hero-grid:has(.stage-portrait){
+  grid-template-columns:1fr;align-items:center;position:relative;z-index:2;
+}
+/* текст занимает свою колонку, но заходит под фото справа */
+.hero-grid:has(.stage-portrait) > div:first-child{max-width:min(70%,760px);position:relative;z-index:2}
+
+/* фото вынуто из потока и лежит поверх */
+.stage-portrait{
+  position:absolute;top:0;right:calc(-1 * var(--pad));bottom:calc(-1 * var(--pad));
+  width:64%;display:flex;align-items:flex-end;justify-content:flex-end;
+  z-index:3;pointer-events:none;min-height:0;
+}
+.hero-portrait{
+  height:100%;width:auto;max-height:none;max-width:none;
+  object-fit:contain;object-position:bottom right;
+  margin:0;
+}
+/* маркетплейсы остаются поверх фото и кликабельны */
+.markets{position:relative;z-index:5;background:linear-gradient(to right,var(--card) 62%,rgba(18,18,18,0))}
+
+@media(max-width:900px){
+  .hero .panel{min-height:0}
+  .hero-grid:has(.stage-portrait){grid-template-columns:1fr}
+  .hero-grid:has(.stage-portrait) > div:first-child{max-width:none}
+  .stage-portrait{position:static;width:auto;justify-content:center;pointer-events:auto}
+  .hero-portrait{height:auto;max-height:min(58vh,470px);margin-inline:auto;
+                 margin-bottom:calc(-1 * var(--pad));object-position:bottom center}
+  .markets{background:none}
+}
+
+/* портрет теперь прямой потомок панели: считается от неё, а не от сетки */
+.hero-grid:has(.stage-portrait){position:static}
+.hero .panel:has(.stage-portrait) .hero-grid{position:relative;z-index:2;grid-template-columns:1fr;align-items:center}
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(68%,740px)}
+.stage-portrait{
+  position:absolute;top:0;right:0;bottom:0;
+  width:66%;display:flex;align-items:flex-end;justify-content:flex-end;
+  z-index:3;pointer-events:none;
+}
+.hero-portrait{height:100%;width:auto;max-height:none;max-width:none;object-fit:contain;object-position:bottom right;margin:0}
+@media(max-width:900px){
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
+  .stage-portrait{position:static;width:auto;justify-content:center;pointer-events:auto}
+  .hero-portrait{height:auto;max-height:min(58vh,470px);margin-inline:auto;
+                 margin-bottom:calc(-1 * var(--pad));object-position:bottom center}
+}
+
+/* полоса маркетплейсов больше не перечёркивает фото: логотипы и так слева */
+.markets{background:none}
+
+/* текст шире, чтобы уходил под портрет как в референсе */
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(84%,960px)}
+.hero .panel:has(.stage-portrait) .h-xl{font-size:clamp(44px,8.4vw,124px)}
+.hero .panel:has(.stage-portrait) .sub{max-width:38ch}
+@media(max-width:900px){
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
+  .hero .panel:has(.stage-portrait) .h-xl{font-size:clamp(42px,9vw,72px)}
+}
