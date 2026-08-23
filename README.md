@@ -21,6 +21,21 @@ assets/img/process/ research screenshots
 python3 -m http.server 4321
 ```
 
+## Adding real numbers to a case
+
+`data/results.json` drives the stat strip under each redesign case. Every array
+starts empty, and an empty array renders nothing at all. Put sourced figures in
+and the strip appears:
+
+```json
+"vicalina": { "metrics": [
+  { "label": "Main image CTR", "value": "4.9%", "note": "from 3.1%", "dir": "up" }
+] }
+```
+
+`dir` is `up` or `down` and only colours the arrow. Use figures you can point at
+in Seller Central or a client report.
+
 ## Notes
 
 Case before-galleries are labelled Concept redesign. They are reconstructions

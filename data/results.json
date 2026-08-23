@@ -1,0 +1,12 @@
+{
+  "_howto": "Fill in metrics you can actually source from Seller Central or a client report. Each entry renders as a stat in the case. Leave the array empty and the strip simply does not appear. Keys: label, value, note (optional), dir ('up' or 'down', optional).",
+  "_example": [
+    { "label": "Main image CTR", "value": "4.9%", "note": "from 3.1%", "dir": "up" },
+    { "label": "Conversion", "value": "18.4%", "note": "from 14.2%", "dir": "up" },
+    { "label": "ACOS", "value": "21%", "note": "from 34%", "dir": "down" }
+  ],
+
+  "vicalina": { "metrics": [] },
+  "zont": { "metrics": [] },
+  "trash-bags": { "metrics": [] }
+}

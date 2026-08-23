@@ -142,6 +142,31 @@
     demo.observe(phase);
   });
 
+
+  /* Real numbers only. data/results.json starts empty on purpose: a strip
+     appears for a case the moment someone puts sourced figures in it. */
+  var metricSlots = document.querySelectorAll(".phase-metrics");
+  if (metricSlots.length) {
+    fetch("data/results.json")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        metricSlots.forEach(function (slot) {
+          var entry = data[slot.dataset.case];
+          var rows = entry && entry.metrics;
+          if (!rows || !rows.length) return;
+          slot.innerHTML = rows.map(function (m) {
+            var dir = m.dir === "up" ? "up" : m.dir === "down" ? "down" : "flat";
+            var arrow = m.dir === "up" ? "\u2191" : m.dir === "down" ? "\u2193" : "";
+            var note = m.note ? '<i class="' + dir + '">' + arrow + " " + m.note + "</i>" : "";
+            return '<div class="metric"><b>' + m.value + "</b><span>" + m.label + "</span>" + note + "</div>";
+          }).join("");
+          slot.hidden = false;
+        });
+      })
+      .catch(function () { /* no numbers, no strip */ });
+  }
+
   /* accent preview switcher, temporary review tool */
   var sw = document.getElementById("sw");
   if (sw) {

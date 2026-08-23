@@ -859,3 +859,44 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero-portrait{height:auto;object-position:bottom center}
   .markets::before{width:100%}
 }
+
+/* ---------- v13: разбор кейса под полосой слайдов ---------- */
+
+.phase-notes{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:var(--gap);
+}
+@media(max-width:900px){.phase-notes{grid-template-columns:1fr}}
+.pn{
+  background:var(--card);border-radius:var(--r-md);
+  padding:clamp(20px,2.1vw,30px);display:flex;flex-direction:column;gap:12px;
+}
+.pn em{
+  font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--grey-2);
+}
+.pn p{margin:0;font-size:15px;line-height:1.5;color:var(--grey)}
+/* средняя карточка — то, ради чего к нам идут */
+.pn-do{background:var(--card-2);position:relative}
+.pn-do em{color:var(--accent)}
+.pn-do p{color:var(--white)}
+.pn-do::before{
+  content:"";position:absolute;left:0;top:clamp(20px,2.1vw,30px);bottom:clamp(20px,2.1vw,30px);
+  width:2px;background:var(--accent);border-radius:100px;
+}
+
+/* строка результатов: появляется только если в data/results.json есть цифры */
+.phase-metrics{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+  background:var(--line);border-radius:var(--r-md);overflow:hidden;margin-top:var(--gap);
+}
+.phase-metrics[hidden]{display:none}
+.metric{background:var(--card);padding:clamp(18px,2vw,26px)}
+.metric b{display:block;font-weight:800;font-size:clamp(26px,3vw,40px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.metric span{display:block;font-size:13px;color:var(--grey);margin-top:8px}
+.metric i{
+  font-style:normal;display:inline-flex;align-items:center;gap:5px;margin-top:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+}
+.metric i.up{color:#5FD08A}
+.metric i.down{color:#5FD08A}
+.metric i.flat{color:var(--grey-2)}
