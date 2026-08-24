@@ -717,13 +717,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* exact square A/B cards: equal geometry and safe framing at every width */
 .viz.ab-test-viz{
-  height:auto;min-height:0;padding:clamp(18px,2.4vw,34px);
+  height:auto;min-height:0;aspect-ratio:16/9;padding:clamp(12px,1.5vw,22px);
   background:#050607;overflow:hidden;align-items:center;
 }
 .ab-test-grid{
-  width:min(100%,980px);margin-inline:auto;display:grid;
+  width:min(54%,520px);margin-inline:auto;display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(14px,1.8vw,24px);align-items:center;
+  gap:clamp(8px,.8vw,13px);align-items:center;
 }
 .ab-test-card{
   position:relative;aspect-ratio:1;margin:0;border:1px solid #30343a;
@@ -755,7 +755,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-family:var(--sans);font-size:clamp(7px,.75vw,11px);font-weight:800;
   font-style:normal;text-transform:uppercase;letter-spacing:.06em;
 }
-@media(max-width:560px){.ab-test-grid{gap:10px}}
+@media(max-width:720px){
+  .viz.ab-test-viz{aspect-ratio:auto;padding:16px}
+  .ab-test-grid{width:100%;gap:10px}
+}
 
 /* слайды — второй, большой кликабельный ярлык того же переключателя */
 .phase-strip{cursor:pointer}
