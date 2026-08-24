@@ -997,3 +997,45 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* последняя плашка анатомии занимает две колонки, чтобы сетка сходилась */
 .slot-cta{grid-column:span 2}
 @media(max-width:560px){.slot-cta{grid-column:span 1}}
+
+/* ---------- v17 ---------- */
+
+/* портрет ещё крупнее */
+.stage-portrait{width:112%;bottom:-56%}
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(41%,500px)}
+@media(max-width:900px){
+  .stage-portrait{width:auto;bottom:auto}
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
+}
+
+/* подсказка прокрутки: тёмное стекло вместо яркой таблетки,
+   белый Cygre вместо моноширинного с разрядкой */
+.aplus-cue{
+  bottom:58px;padding:13px 20px 13px 22px;gap:11px;
+  font-family:var(--sans);font-weight:700;font-size:14px;
+  letter-spacing:-.02em;text-transform:none;
+  background:rgba(10,10,10,.72);color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(14px);
+  box-shadow:0 12px 32px rgba(0,0,0,.6);
+}
+/* стрелка — тонкая линия с головкой, а не символ шрифта */
+.aplus-cue b{
+  display:block;width:11px;height:16px;margin:0;font-size:0;position:relative;
+  animation:none;
+}
+.aplus-cue b::before{
+  content:"";position:absolute;left:5px;top:0;width:1.5px;height:11px;
+  background:var(--accent);border-radius:2px;
+}
+.aplus-cue b::after{
+  content:"";position:absolute;left:1.5px;bottom:1px;width:8px;height:8px;
+  border-right:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);
+  transform:rotate(45deg);border-radius:0 0 2px 0;
+}
+.aplus-cue b{animation:slide 1.7s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes slide{
+  0%,100%{transform:translateY(-2px);opacity:.75}
+  50%{transform:translateY(3px);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.aplus-cue b{animation:none}}
