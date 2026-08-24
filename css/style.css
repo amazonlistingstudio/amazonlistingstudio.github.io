@@ -721,8 +721,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:#050607;overflow:hidden;align-items:center;
 }
 .ab-test-grid{
-  width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:clamp(8px,1.2vw,18px);align-items:center;
+  width:min(100%,980px);margin-inline:auto;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(14px,1.8vw,24px);align-items:center;
 }
 .ab-test-card{
   position:relative;aspect-ratio:1;margin:0;border:1px solid #30343a;
@@ -754,9 +755,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-family:var(--sans);font-size:clamp(7px,.75vw,11px);font-weight:800;
   font-style:normal;text-transform:uppercase;letter-spacing:.06em;
 }
-@media(max-width:720px){
-  .ab-test-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-}
+@media(max-width:560px){.ab-test-grid{gap:10px}}
 
 /* слайды — второй, большой кликабельный ярлык того же переключателя */
 .phase-strip{cursor:pointer}
