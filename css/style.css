@@ -712,6 +712,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 @media(prefers-reduced-motion:reduce){.aplus-cue b{animation:none}}
 
+/* section headlines stand on their own without micro-labels */
+.eyebrow{display:none}
+
 /* слайды — второй, большой кликабельный ярлык того же переключателя */
 .phase-strip{cursor:pointer}
 .ph-cell{transition:box-shadow .25s}
