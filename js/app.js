@@ -80,12 +80,14 @@
     var thumb = item.querySelector(".aplus-rail i");
     if (!frame || !thumb) return;
 
+    var rail = item.querySelector(".aplus-rail");
+
     var sync = function () {
       var travel = frame.scrollHeight - frame.clientHeight;
-      if (travel <= 0) {
-        item.querySelector(".aplus-rail").style.display = "none";
-        return;
-      }
+      /* the first run happens before the tall image has loaded, when there is
+         nothing to scroll yet; the rail has to come back once there is */
+      rail.style.display = travel <= 0 ? "none" : "";
+      if (travel <= 0) return;
       var ratio = frame.clientHeight / frame.scrollHeight;
       var pct = frame.scrollTop / travel;
       thumb.style.height = Math.max(12, ratio * 100).toFixed(1) + "%";
@@ -96,7 +98,7 @@
     frame.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
     var img = frame.querySelector("img");
-    if (img && !img.complete) img.addEventListener("load", sync);
+    if (img) img.addEventListener("load", sync);
     sync();
   });
 

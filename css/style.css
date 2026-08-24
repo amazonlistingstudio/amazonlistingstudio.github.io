@@ -900,3 +900,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .metric i.up{color:#5FD08A}
 .metric i.down{color:#5FD08A}
 .metric i.flat{color:var(--grey-2)}
+
+/* ---------- v14 ---------- */
+
+/* портрет ещё крупнее: Walmart ушёл, места стало больше */
+.stage-portrait{width:88%;bottom:-30%}
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(54%,620px)}
+
+/* карточка «что сделали» — главная, поэтому заметно тяжелее соседних */
+.phase-notes{grid-template-columns:.85fr 1.3fr .85fr}
+@media(max-width:900px){.phase-notes{grid-template-columns:1fr}}
+.pn-do{
+  background:var(--card-2);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 32%,transparent),
+             0 18px 46px rgba(0,0,0,.45);
+}
+.pn-do::before{width:3px}
+.pn-do em{color:var(--accent);font-size:11px}
+.pn-do p{color:var(--white);font-size:16px;line-height:1.55}
+
+/* срок сдачи крупно, счётчик картинок убран */
+.caseset-info .meta{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;color:var(--white)}
+.caseset-info .meta b{font-weight:800;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.caseset-info .meta i{font-style:normal;font-weight:600;font-size:clamp(14px,1.3vw,18px);letter-spacing:-.01em;color:var(--grey)}
+.caseset-info .meta em{
+  font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);width:100%;margin-top:4px;
+}
+
+/* плашка прокрутки A+: ярче и аккуратнее */
+.aplus-cue{
+  bottom:64px;padding:12px 22px;font-size:12px;letter-spacing:.16em;font-weight:600;
+  border-radius:100px;
+  background:var(--accent);color:var(--on-accent);
+  box-shadow:0 10px 30px rgba(0,0,0,.55),
+             0 0 0 6px color-mix(in srgb,var(--accent) 18%,transparent);
+}
+.aplus-cue b{font-size:15px;margin-left:2px}
+.aplus-rail{width:8px;right:14px;background:rgba(255,255,255,.16)}
+.aplus-rail i{box-shadow:0 0 14px color-mix(in srgb,var(--accent) 60%,transparent)}
