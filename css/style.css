@@ -715,6 +715,49 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* section headlines stand on their own without micro-labels */
 .eyebrow{display:none}
 
+/* exact square A/B cards: equal geometry and safe framing at every width */
+.viz.ab-test-viz{
+  height:auto;min-height:0;padding:clamp(18px,2.4vw,34px);
+  background:#050607;overflow:hidden;align-items:center;
+}
+.ab-test-grid{
+  width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(8px,1.2vw,18px);align-items:center;
+}
+.ab-test-card{
+  position:relative;aspect-ratio:1;margin:0;border:1px solid #30343a;
+  border-radius:clamp(8px,1vw,14px);overflow:visible;background:#080a0c;
+  display:grid;grid-template-rows:74% 26%;min-width:0;
+}
+.ab-test-card img{
+  width:100%;height:100%;display:block;object-fit:contain;background:#fff;
+  border-radius:inherit;border-bottom-left-radius:0;border-bottom-right-radius:0;
+}
+.ab-test-card figcaption{
+  min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(3px,.45vw,7px);text-transform:uppercase;color:#fff;
+}
+.ab-test-card figcaption span{
+  font-family:var(--mono);font-size:clamp(7px,.72vw,11px);font-weight:700;
+  letter-spacing:.1em;color:#b8bbc0;
+}
+.ab-test-card figcaption b{
+  display:flex;align-items:baseline;gap:clamp(4px,.55vw,8px);
+  font-size:clamp(15px,2.15vw,34px);line-height:1;font-variant-numeric:tabular-nums;
+}
+.ab-test-card figcaption small{font-size:.35em;letter-spacing:.04em}
+.ab-test-winner{border:2px solid var(--accent)}
+.ab-test-winner figcaption span,.ab-test-winner figcaption b{color:var(--accent)}
+.ab-test-winner i{
+  position:absolute;right:8%;top:0;z-index:2;transform:translateY(-58%);
+  padding:5px 12px;border-radius:100px;background:var(--accent);color:var(--on-accent);
+  font-family:var(--sans);font-size:clamp(7px,.75vw,11px);font-weight:800;
+  font-style:normal;text-transform:uppercase;letter-spacing:.06em;
+}
+@media(max-width:720px){
+  .ab-test-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+}
+
 /* слайды — второй, большой кликабельный ярлык того же переключателя */
 .phase-strip{cursor:pointer}
 .ph-cell{transition:box-shadow .25s}
