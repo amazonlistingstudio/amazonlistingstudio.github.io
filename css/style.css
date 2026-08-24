@@ -715,36 +715,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* section headlines stand on their own without micro-labels */
 .eyebrow{display:none}
 
-/* exact square A/B cards: equal geometry and safe framing at every width */
+/* A/B variants: one clean comparison row */
 .viz.ab-test-viz{
   height:auto;min-height:0;aspect-ratio:16/9;padding:clamp(12px,1.5vw,22px);
   background:#050607;overflow:hidden;align-items:center;
 }
 .ab-test-grid{
-  width:min(54%,520px);margin-inline:auto;display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(8px,.8vw,13px);align-items:center;
+  width:100%;max-width:1180px;margin-inline:auto;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(8px,1vw,16px);align-items:center;
 }
 .ab-test-card{
-  position:relative;aspect-ratio:1;margin:0;border:1px solid #30343a;
+  position:relative;aspect-ratio:4/5;margin:0;border:1px solid #30343a;
   border-radius:clamp(8px,1vw,14px);overflow:visible;background:#080a0c;
-  display:grid;grid-template-rows:74% 26%;min-width:0;
+  display:grid;grid-template-rows:minmax(0,1fr) 34%;min-width:0;
 }
 .ab-test-card img{
-  width:100%;height:100%;display:block;object-fit:contain;background:#fff;
+  width:100%;height:100%;min-height:0;display:block;object-fit:contain;background:#fff;
   border-radius:inherit;border-bottom-left-radius:0;border-bottom-right-radius:0;
 }
 .ab-test-card figcaption{
   min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:clamp(3px,.45vw,7px);text-transform:uppercase;color:#fff;
+  gap:clamp(2px,.25vw,4px);text-transform:uppercase;color:#fff;
 }
 .ab-test-card figcaption span{
-  font-family:var(--mono);font-size:clamp(7px,.72vw,11px);font-weight:700;
+  font-family:var(--mono);font-size:clamp(7px,.62vw,9px);font-weight:700;
   letter-spacing:.1em;color:#b8bbc0;
 }
 .ab-test-card figcaption b{
-  display:flex;align-items:baseline;gap:clamp(4px,.55vw,8px);
-  font-size:clamp(15px,2.15vw,34px);line-height:1;font-variant-numeric:tabular-nums;
+  display:flex;align-items:baseline;gap:clamp(3px,.35vw,5px);
+  font-size:clamp(15px,1.65vw,26px);line-height:1;font-variant-numeric:tabular-nums;
 }
 .ab-test-card figcaption small{font-size:.35em;letter-spacing:.04em}
 .ab-test-winner{border:2px solid var(--accent)}
@@ -756,8 +756,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-style:normal;text-transform:uppercase;letter-spacing:.06em;
 }
 @media(max-width:720px){
-  .viz.ab-test-viz{aspect-ratio:auto;padding:16px}
-  .ab-test-grid{width:100%;gap:10px}
+  .viz.ab-test-viz{aspect-ratio:auto;padding:12px;overflow-x:auto}
+  .ab-test-grid{width:max-content;max-width:none;grid-template-columns:repeat(4,150px);gap:10px;padding:8px 2px}
 }
 
 /* слайды — второй, большой кликабельный ярлык того же переключателя */
