@@ -946,6 +946,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- v15 ---------- */
 
+/* expanded listing cases keep additional slides in a balanced grid */
+.caseset-expanded .caseset-grid{grid-template-columns:repeat(6,1fr)}
+.caseset-expanded .caseset-info-wide{grid-column:span 2}
+@media(max-width:1000px){
+  .caseset-expanded .caseset-grid{grid-template-columns:repeat(3,1fr)}
+  .caseset-expanded .caseset-info-wide{grid-column:span 1}
+}
+@media(max-width:620px){
+  .caseset-expanded .caseset-grid{grid-template-columns:repeat(2,1fr)}
+}
+
 /* портрет растёт в сторону текста */
 .stage-portrait{width:96%;bottom:-40%}
 .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(48%,560px)}
