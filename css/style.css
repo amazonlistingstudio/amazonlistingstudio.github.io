@@ -985,3 +985,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .slot-cta em{color:var(--on-accent);font-size:20px;letter-spacing:0}
 .slot-cta h3{font-size:clamp(19px,1.8vw,26px);letter-spacing:-.03em}
 .slot-cta p{color:color-mix(in srgb,var(--on-accent) 66%,transparent);font-size:14.5px}
+
+/* портрет ещё крупнее */
+.stage-portrait{width:104%;bottom:-46%}
+.hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(44%,520px)}
+@media(max-width:900px){
+  .stage-portrait{width:auto;bottom:auto}
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
+}
+
+/* последняя плашка анатомии занимает две колонки, чтобы сетка сходилась */
+.slot-cta{grid-column:span 2}
+@media(max-width:560px){.slot-cta{grid-column:span 1}}
