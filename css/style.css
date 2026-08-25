@@ -1128,6 +1128,15 @@ body.lightbox-open{overflow:hidden}
   .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:none}
 }
 
+/* ---------- v18: keep the complete approved portrait visible ---------- */
+@media(min-width:901px){
+  .stage-portrait{top:0;right:0;bottom:0;width:68%;align-items:flex-end}
+  .hero-portrait.hero-portrait-cards{
+    width:auto;height:100%;max-width:none;max-height:100%;object-fit:contain;object-position:bottom right;
+  }
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(52%,600px)}
+}
+
 /* подсказка прокрутки: тёмное стекло вместо яркой таблетки,
    белый Cygre вместо моноширинного с разрядкой */
 .aplus-cue{
