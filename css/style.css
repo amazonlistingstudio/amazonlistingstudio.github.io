@@ -712,6 +712,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 @media(prefers-reduced-motion:reduce){.aplus-cue b{animation:none}}
 
+/* ---------- v19: intentionally weaker source material in Before ---------- */
+.ph-cell .ph-before{
+  filter:saturate(.58) contrast(.80) brightness(.91) blur(.55px);
+  transform:scale(1.045);
+}
+.phase-strip .ph-cell:nth-child(2) .ph-before{transform:scale(1.08);object-position:43% 50%}
+.phase-strip .ph-cell:nth-child(3) .ph-before{transform:scale(1.025);object-position:56% 48%}
+.phase-strip .ph-cell:nth-child(4) .ph-before{transform:scale(1.07);object-position:47% 55%}
+.phase-strip .ph-cell:nth-child(5) .ph-before{transform:scale(1.035);object-position:53% 46%}
+
 /* section headlines stand on their own without micro-labels */
 .eyebrow{display:none}
 
