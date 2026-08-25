@@ -797,6 +797,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .slide-lightbox button:hover{background:var(--accent);color:var(--on-accent)}
 body.lightbox-open{overflow:hidden}
 
+/* approved portrait with the listing fan: large, but fully visible in the hero */
+.hero-portrait.hero-portrait-cards{
+  width:auto;height:min(88vh,820px);max-width:none;max-height:92%;margin:0 3.5% 0 0;
+  object-fit:contain;object-position:bottom right;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0 91%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0 91%,transparent 100%);
+}
+@media(max-width:900px){
+  .hero-portrait.hero-portrait-cards{
+    width:auto;height:auto;max-width:min(92vw,520px);max-height:min(58vh,560px);
+    margin:0 auto calc(-1 * var(--pad));object-position:bottom center;
+  }
+}
+
 /* рельс читается как скроллбар даже без JS: бегунок имеет осмысленный размер сразу */
 .aplus-rail i{height:24%}
 
