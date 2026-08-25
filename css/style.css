@@ -774,6 +774,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .phase-hint{transition:opacity .3s}
 .aplus-frame{scroll-behavior:auto}
 
+/* full-resolution slide viewer */
+.zoomer,.slot-shot:has(> img){cursor:zoom-in}
+.slide-lightbox{
+  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+  padding:clamp(16px,4vw,56px);background:rgba(0,0,0,.88);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;
+}
+.slide-lightbox.is-open{opacity:1;visibility:visible}
+.slide-lightbox img{
+  display:block;max-width:min(92vw,1254px);max-height:88vh;width:auto;height:auto;
+  object-fit:contain;border-radius:clamp(10px,1.4vw,20px);
+  box-shadow:0 30px 90px rgba(0,0,0,.65);background:#111;
+}
+.slide-lightbox button{
+  position:absolute;top:clamp(12px,2vw,26px);right:clamp(12px,2vw,26px);
+  width:46px;height:46px;border:1px solid rgba(255,255,255,.22);border-radius:50%;
+  display:grid;place-items:center;background:rgba(18,18,18,.78);color:#fff;
+  font:400 28px/1 var(--sans);cursor:pointer;
+}
+.slide-lightbox button:hover{background:var(--accent);color:var(--on-accent)}
+body.lightbox-open{overflow:hidden}
+
 /* рельс читается как скроллбар даже без JS: бегунок имеет осмысленный размер сразу */
 .aplus-rail i{height:24%}
 
