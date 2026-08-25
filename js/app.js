@@ -3,6 +3,13 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Research evidence should lead into the workflow. */
+  var research = document.getElementById("research");
+  var process = document.getElementById("process");
+  if (research && process && process.parentNode) {
+    process.parentNode.insertBefore(research, process);
+  }
+
   /* nav border once scrolled */
   var nav = document.getElementById("nav");
   if (nav) {
