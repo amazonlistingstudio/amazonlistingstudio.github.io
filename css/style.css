@@ -743,9 +743,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:#050607;overflow:visible;align-items:center;
 }
 .ab-test-grid{
-  width:100%;max-width:760px;margin-inline:auto;display:grid;
+  width:100%;max-width:660px;margin-inline:auto;display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(14px,1.5vw,22px);align-items:start;
+  gap:clamp(12px,1.25vw,18px);align-items:start;
 }
 .ab-test-card{
   position:relative;margin:0;border:1px solid #30343a;
@@ -759,7 +759,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ab-test-card figcaption{
   position:static;min-width:0;display:flex;
   flex-direction:column;align-items:center;justify-content:center;
-  min-height:clamp(72px,7vw,96px);gap:clamp(4px,.4vw,7px);padding:12px 8px 14px;
+  min-height:clamp(64px,5.8vw,82px);gap:clamp(3px,.35vw,6px);padding:10px 8px 12px;
   text-transform:uppercase;color:#fff;
   border-radius:0 0 clamp(9px,1.1vw,15px) clamp(9px,1.1vw,15px);
   background:#06080a;
@@ -770,7 +770,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .ab-test-card figcaption b{
   display:flex;align-items:baseline;gap:clamp(3px,.35vw,5px);
-  font-size:clamp(24px,2.4vw,38px);line-height:1;font-variant-numeric:tabular-nums;
+  font-size:clamp(22px,2.05vw,34px);line-height:1;font-variant-numeric:tabular-nums;
 }
 .ab-test-card figcaption small{font-size:.35em;letter-spacing:.04em}
 .ab-test-winner{border:2px solid var(--accent)}
