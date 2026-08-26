@@ -1181,14 +1181,14 @@ body.lightbox-open{overflow:hidden}
 .phase-notes{
   position:relative;display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
-  gap:0;margin-top:var(--gap);padding-bottom:clamp(58px,6vw,82px);
+  gap:0;margin-top:var(--gap);padding-bottom:clamp(62px,5vw,74px);
 }
 .phase-notes .pn{
-  min-height:clamp(190px,15vw,238px);padding:clamp(26px,2.8vw,42px);
-  border-radius:clamp(24px,2.4vw,38px);justify-content:center;
+  min-height:clamp(142px,11vw,176px);padding:clamp(22px,2vw,30px);
+  border-radius:clamp(20px,1.8vw,28px);justify-content:center;
 }
 .phase-notes .pn:first-child{
-  padding-right:clamp(48px,6vw,92px);background:#151515;
+  padding-right:clamp(42px,5vw,76px);background:#151515;
 }
 .phase-notes .pn-do{
   z-index:2;margin-left:clamp(-54px,-3.2vw,-28px);
@@ -1198,16 +1198,18 @@ body.lightbox-open{overflow:hidden}
 .phase-notes .pn-do::before{display:none}
 .phase-notes .pn-do em,
 .phase-notes .pn-do p{color:var(--on-accent)}
-.phase-notes .pn-do em{font-size:12px}
+.phase-notes .pn em{font-size:12px;font-weight:800}
+.phase-notes .pn p{font-size:clamp(15px,1.2vw,17px);line-height:1.45}
+.phase-notes .pn:first-child p{color:#deded9}
 .phase-notes .pn:last-child{
-  position:absolute;right:clamp(22px,3vw,46px);bottom:0;z-index:3;
-  width:min(52%,620px);min-height:0;padding:16px 22px;
+  position:absolute;right:clamp(14px,2vw,28px);bottom:0;z-index:3;
+  width:min(68%,820px);min-height:0;padding:17px 24px;
   display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;
-  border-radius:100px;background:#0b0b0b;border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 12px 34px rgba(0,0,0,.35);
+  border-radius:18px;background:#121a24;border:1px solid color-mix(in srgb,var(--accent) 64%,transparent);
+  box-shadow:0 12px 34px rgba(0,0,0,.38),inset 3px 0 var(--accent);
 }
 .phase-notes .pn:last-child em{color:var(--accent);white-space:nowrap}
-.phase-notes .pn:last-child p{font-size:13px;line-height:1.4}
+.phase-notes .pn:last-child p{font-size:14px;line-height:1.4;color:#f2f2ef}
 @media(max-width:900px){
   .phase-notes{grid-template-columns:1fr;gap:12px;padding-bottom:0}
   .phase-notes .pn{min-height:0;padding:22px;border-radius:22px}
