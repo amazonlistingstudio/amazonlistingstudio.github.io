@@ -1202,8 +1202,8 @@ body.lightbox-open{overflow:hidden}
 .phase-notes .pn p{font-size:clamp(15px,1.2vw,17px);line-height:1.45}
 .phase-notes .pn:first-child p{color:#deded9}
 .phase-notes .pn:last-child{
-  position:absolute;right:clamp(14px,2vw,28px);bottom:0;z-index:3;
-  width:min(68%,820px);min-height:0;padding:17px 24px;
+  position:absolute;left:50%;right:auto;bottom:0;z-index:3;
+  transform:translateX(-50%);width:min(62%,760px);min-height:0;padding:17px 24px;
   display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;
   border-radius:18px;background:#121a24;border:1px solid color-mix(in srgb,var(--accent) 64%,transparent);
   box-shadow:0 12px 34px rgba(0,0,0,.38),inset 3px 0 var(--accent);
@@ -1216,10 +1216,16 @@ body.lightbox-open{overflow:hidden}
   .phase-notes .pn:first-child{padding-right:22px}
   .phase-notes .pn-do{margin-left:0}
   .phase-notes .pn:last-child{
-    position:static;width:auto;padding:18px 20px;display:flex;
+    position:static;transform:none;width:auto;padding:18px 20px;display:flex;
     border-radius:22px;
   }
 }
+
+/* ---------- v20: centered result, larger hero portrait, tighter A/B test ---------- */
+@media(min-width:901px){
+  .stage-portrait{right:-4%;bottom:-70%;width:100%}
+}
+.ab-test-grid{max-width:560px}
 
 /* подсказка прокрутки: тёмное стекло вместо яркой таблетки,
    белый Cygre вместо моноширинного с разрядкой */
