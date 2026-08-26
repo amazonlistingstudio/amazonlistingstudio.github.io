@@ -1227,6 +1227,17 @@ body.lightbox-open{overflow:hidden}
 }
 .ab-test-grid{max-width:560px}
 
+/* ---------- v21: stronger result and a more compact A/B panel ---------- */
+.phase-notes .pn:last-child{
+  width:min(66%,820px);padding:20px 28px;gap:20px;border-radius:20px;
+}
+.phase-notes .pn:last-child em{font-size:13px}
+.phase-notes .pn:last-child p{font-size:clamp(15px,1.1vw,16px)}
+.ab-test-grid{max-width:500px}
+@media(max-width:900px){
+  .phase-notes .pn:last-child{width:auto;padding:20px 22px}
+}
+
 /* подсказка прокрутки: тёмное стекло вместо яркой таблетки,
    белый Cygre вместо моноширинного с разрядкой */
 .aplus-cue{
