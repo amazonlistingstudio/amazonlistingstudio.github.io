@@ -1160,6 +1160,65 @@ body.lightbox-open{overflow:hidden}
   .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{max-width:min(52%,600px)}
 }
 
+/* ---------- v19: stronger hero overlap, balanced research cards and unified case notes ---------- */
+@media(min-width:901px){
+  .stage-portrait{
+    top:0;right:-2.5%;bottom:-34%;width:84%;
+  }
+  .hero-portrait.hero-portrait-cards{
+    width:auto;height:100%;max-width:none;max-height:none;
+  }
+  .hero .panel:has(.stage-portrait) .hero-grid > div:first-child{
+    max-width:min(56%,650px);
+  }
+}
+
+/* Research cards keep their natural height instead of stretching to the A/B panel. */
+.res{align-items:start}
+.rcard{align-self:start;height:auto}
+
+/* One composed story instead of three unrelated boxes. */
+.phase-notes{
+  position:relative;display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
+  gap:0;margin-top:var(--gap);padding-bottom:clamp(58px,6vw,82px);
+}
+.phase-notes .pn{
+  min-height:clamp(190px,15vw,238px);padding:clamp(26px,2.8vw,42px);
+  border-radius:clamp(24px,2.4vw,38px);justify-content:center;
+}
+.phase-notes .pn:first-child{
+  padding-right:clamp(48px,6vw,92px);background:#151515;
+}
+.phase-notes .pn-do{
+  z-index:2;margin-left:clamp(-54px,-3.2vw,-28px);
+  background:var(--accent);color:var(--on-accent);
+  border:0;box-shadow:0 22px 60px rgba(0,0,0,.42);
+}
+.phase-notes .pn-do::before{display:none}
+.phase-notes .pn-do em,
+.phase-notes .pn-do p{color:var(--on-accent)}
+.phase-notes .pn-do em{font-size:12px}
+.phase-notes .pn:last-child{
+  position:absolute;right:clamp(22px,3vw,46px);bottom:0;z-index:3;
+  width:min(52%,620px);min-height:0;padding:16px 22px;
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;
+  border-radius:100px;background:#0b0b0b;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 12px 34px rgba(0,0,0,.35);
+}
+.phase-notes .pn:last-child em{color:var(--accent);white-space:nowrap}
+.phase-notes .pn:last-child p{font-size:13px;line-height:1.4}
+@media(max-width:900px){
+  .phase-notes{grid-template-columns:1fr;gap:12px;padding-bottom:0}
+  .phase-notes .pn{min-height:0;padding:22px;border-radius:22px}
+  .phase-notes .pn:first-child{padding-right:22px}
+  .phase-notes .pn-do{margin-left:0}
+  .phase-notes .pn:last-child{
+    position:static;width:auto;padding:18px 20px;display:flex;
+    border-radius:22px;
+  }
+}
+
 /* подсказка прокрутки: тёмное стекло вместо яркой таблетки,
    белый Cygre вместо моноширинного с разрядкой */
 .aplus-cue{
