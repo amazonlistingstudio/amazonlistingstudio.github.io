@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-
 @font-face{font-family:"Cygre";src:url("../assets/fonts/Cygre-Book.ttf") format("truetype");font-weight:400;font-display:swap}
 @font-face{font-family:"Cygre";src:url("../assets/fonts/Cygre-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
 @font-face{font-family:"Cygre";src:url("../assets/fonts/Cygre-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
 @font-face{font-family:"Cygre";src:url("../assets/fonts/Cygre-ExtraBold.ttf") format("truetype");font-weight:800;font-display:swap}
 @font-face{font-family:"Cygre";src:url("../assets/fonts/Cygre-Black.ttf") format("truetype");font-weight:900;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("../assets/fonts/InstrumentSerif-Regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("../assets/fonts/InstrumentSerif-Italic.ttf") format("truetype");font-style:italic;font-weight:400;font-display:swap}
 
 :root{
   --bg:#060606;
