@@ -214,7 +214,7 @@
   var reviewSlot = document.getElementById("reviews");
   var reviewSection = document.getElementById("reviews-sec");
   if (reviewSlot && reviewSection) {
-    fetch("data/reviews.json?v=bcc75f04")
+    fetch("data/reviews.json?v=912fd088")
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         var rows = data && data.reviews;
