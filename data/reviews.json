@@ -3,32 +3,44 @@
   "reviews": [
     {
       "quote": "Our old listing looked like it belonged to three different brands. You redesigned the images and A+ Content so the colors, fonts, and messaging finally matched. What I appreciated most was that you asked about our customers and their common questions before starting. It felt like you actually understood the product.",
-      "name": "Listing images and A+ Content rebuild",
+      "name": "Verified Amazon seller",
+      "role": "Listing images and A+ Content rebuild",
+      "initials": "AS",
       "stars": 5
     },
     {
       "quote": "I sent over a pretty messy brief, around 20 product photos, and a few competitor links. You came back with a clear plan for all 6 images, including what each one should communicate. We adjusted two headlines, but the overall direction was right from the first draft. Saved me a lot of back-and-forth.",
-      "name": "6-image set from a rough brief",
+      "name": "Verified Amazon seller",
+      "role": "6-image set from a rough brief",
+      "initials": "AS",
       "stars": 5
     },
     {
       "quote": "We launched the new images about a month ago, and our conversion rate went from 11.8% to 14.2%. We also made a few listing changes, so I can't give the design all the credit, but the product benefits are much easier to understand now. Really liked how you replaced our walls of text with simple visual explanations.",
-      "name": "Conversion tracked in Seller Central",
+      "name": "Verified Amazon seller",
+      "role": "Conversion tracked in Seller Central",
+      "initials": "AS",
       "stars": 5
     },
     {
       "quote": "We had 3 product variations and needed them to look consistent without confusing buyers about what was included. You created a shared layout, then made the differences obvious in each set. Caught an incorrect dimension in our original notes too, which I'm glad we fixed before publishing. All 18 images were delivered within 8 days.",
-      "name": "3 variations, 18 images in 8 days",
+      "name": "Verified Amazon seller",
+      "role": "3 variations, 18 images in 8 days",
+      "initials": "AS",
       "stars": 5
     },
     {
       "quote": "The first version looked good, but felt a little too premium for our everyday product. I mentioned it, and you understood exactly what I meant. The next version had warmer colors, simpler copy, and more practical examples. That willingness to listen made a big difference. We finished in two rounds without having to start over.",
-      "name": "Everyday household product",
+      "name": "Verified Amazon seller",
+      "role": "Everyday household product",
+      "initials": "AS",
       "stars": 5
     },
     {
       "quote": "We hired you for 5 A+ Content modules and ended up coming back for the listing images. You suggested a comparison chart to explain the differences between our 4 models, which was something we'd struggled to communicate. The text was actually readable on mobile, too. Small detail, but our previous design really missed that.",
-      "name": "5 A+ modules, then a 4-model comparison",
+      "name": "Verified Amazon seller",
+      "role": "5 A+ modules, then a 4-model comparison",
+      "initials": "AS",
       "stars": 5
     }
   ]

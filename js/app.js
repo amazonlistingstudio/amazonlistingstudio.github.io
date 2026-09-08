@@ -214,7 +214,7 @@
   var reviewSlot = document.getElementById("reviews");
   var reviewSection = document.getElementById("reviews-sec");
   if (reviewSlot && reviewSection) {
-    fetch("data/reviews.json?v=516bc1e0")
+    fetch("data/reviews.json?v=bcc75f04")
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         var rows = data && data.reviews;
@@ -234,7 +234,8 @@
           var face = v.avatar
             ? '<img class="review-face" src="' + v.avatar + '" alt="" ' +
               'width="88" height="88" loading="lazy" decoding="async">'
-            : "";
+            : '<span class="review-face review-face-fallback" aria-hidden="true">' +
+              (v.initials || "AS") + "</span>";
           var role = v.role ? '<span class="review-role">' + v.role + "</span>" : "";
           return '<article class="review rv in">' + stars + "<q>" + v.quote + "</q>" +
                  "<footer>" + face + "<div><b>" + v.name + "</b>" + role + src +
