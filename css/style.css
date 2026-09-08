@@ -1392,7 +1392,7 @@ body.lightbox-open{overflow:hidden}
 .review-stars{color:#F5B301;font-size:15px;letter-spacing:.14em;margin-bottom:15px}
 .review q{display:block;margin:0 0 20px;font-size:15px;line-height:1.55;color:var(--white)}
 .review footer{display:flex;align-items:center;gap:12px}
-.review-face{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;background:var(--card-3)}
+.review-face{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none;background:var(--card-3)}
 .review-face-fallback{display:grid;place-items:center;background:linear-gradient(145deg,var(--accent),#236eb5);color:#07111b;font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.08em;border:1px solid rgba(255,255,255,.2)}
 .review footer b{display:block;font-weight:650;font-size:14px;letter-spacing:-.01em;color:var(--white)}
 .review-role{display:block;margin-top:3px;font-size:12.5px;color:var(--grey-2)}
