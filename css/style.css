@@ -1269,3 +1269,162 @@ body.lightbox-open{overflow:hidden}
   50%{transform:translateY(3px);opacity:1}
 }
 @media(prefers-reduced-motion:reduce){.aplus-cue b{animation:none}}
+
+/* ── hero: two floating stats and the star line ─────────────────────── */
+.hstat{
+  position:absolute;z-index:6;display:flex;flex-direction:column;gap:7px;
+  width:clamp(190px,15.5vw,240px);
+  padding:20px 24px;border-radius:var(--r-md);
+  background:rgba(10,10,10,.74);border:1px solid var(--line);
+  backdrop-filter:blur(16px);
+}
+.hstat b{font-weight:800;font-size:clamp(28px,2.9vw,42px);line-height:1;letter-spacing:-.045em;color:var(--accent)}
+.hstat i{font-style:normal;font-size:12.5px;line-height:1.3;color:var(--grey)}
+.hstat-a{right:5%;top:15%}
+.hstat-b{right:5%;bottom:21%}
+@media(max-width:1100px){.hstat{display:none}}
+
+.hero-proof{display:flex;align-items:center;gap:11px;margin-top:26px;font-size:13.5px;color:var(--grey)}
+.hero-proof .stars{color:#F5B301;font-size:15px;letter-spacing:.1em}
+.hero-proof:hover{color:var(--white)}
+
+/* ── results grid: one card per measured listing ────────────────────── */
+.sec-head-mid{justify-content:center;text-align:center}
+.sec-head-mid .sub{margin-left:auto;margin-right:auto}
+
+.rgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.rcell{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;
+}
+.rcell>b{
+  display:flex;align-items:baseline;font-weight:800;line-height:1;
+  font-size:clamp(38px,4.4vw,62px);letter-spacing:-.05em;
+  color:var(--white);font-variant-numeric:tabular-nums;
+}
+.rcell>b i{font-style:normal;font-size:.42em;font-weight:800;margin-left:2px;color:var(--accent)}
+.rcell>span{
+  display:block;margin-top:12px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--grey-2);
+}
+.rcell dl{margin:clamp(20px,2.2vw,30px) 0 0;padding:0;display:flex;flex-direction:column}
+.rcell dl>div{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:13px 0;border-top:1px solid var(--line);
+}
+.rcell dt{font-size:13.5px;color:var(--grey)}
+.rcell dd{margin:0;font-size:13.5px;font-weight:600;text-align:right}
+.rcell .dd-gain{color:var(--accent)}
+
+.rcell-live>b{color:var(--accent)}
+.rcell-live>b i{color:var(--accent)}
+.rcell-note{margin:16px 0 0;font-size:12.5px;line-height:1.45;color:var(--grey)}
+
+.rcell-cta{justify-content:space-between;background:var(--card-2);transition:background .25s,border-color .25s}
+.rcell-cta:hover{background:var(--card-3);border-color:var(--grey-2)}
+.rcell-cta>b{color:var(--accent);font-size:clamp(30px,3vw,42px)}
+.rcell-cta>span{color:var(--white);font-size:11px}
+.rcell-cta p{
+  margin:clamp(20px,2.2vw,30px) 0 0;padding-top:clamp(20px,2.2vw,30px);
+  border-top:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--grey);
+}
+
+@media(max-width:1000px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.rgrid{grid-template-columns:1fr}}
+
+/* ── what the gap is worth, worked out on the visitor's own numbers ─── */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,56px);align-items:center}
+.calc-in{display:flex;flex-direction:column;gap:clamp(18px,2vw,28px)}
+.calc-in label>span{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--grey-2);margin-bottom:12px;
+}
+.calc-in label>span b{
+  font-family:var(--sans);font-size:22px;font-weight:800;letter-spacing:-.03em;
+  color:var(--white);text-transform:none;font-variant-numeric:tabular-nums;
+}
+.calc-note{margin:0;font-size:13px;line-height:1.5;color:var(--grey-2)}
+.calc-note b{color:var(--grey);font-weight:600}
+
+.calc input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:3px;
+  border-radius:100px;background:var(--card-3);outline:none;
+}
+.calc input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:0;
+}
+.calc input[type=range]::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:0;
+}
+
+.calc-out{background:var(--card-2);border-radius:var(--r-lg);padding:clamp(24px,2.8vw,40px)}
+.calc-row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--line);
+}
+.calc-row span{font-size:14px;color:var(--grey)}
+.calc-row b{font-weight:700;font-size:clamp(18px,1.7vw,24px);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.calc-gap{padding-top:24px}
+.calc-gap>span{
+  display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--grey-2);
+}
+.calc-gap>b{
+  display:block;margin-top:10px;font-weight:800;line-height:1;
+  font-size:clamp(38px,4.6vw,66px);letter-spacing:-.05em;
+  color:var(--accent);font-variant-numeric:tabular-nums;
+}
+.calc-gap>i{display:block;margin-top:8px;font-style:normal;font-size:14px;color:var(--grey)}
+.calc-gap>em{display:block;margin-top:6px;font-style:normal;font-size:16px;font-weight:600;color:var(--white)}
+.calc-out .btn{margin-top:26px}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+
+/* ── reviews: seven cards of very uneven length, so they flow in columns
+   instead of a grid, which would leave a hole in the last row ────────── */
+.reviews{columns:3;column-gap:var(--gap)}
+.review{
+  background:var(--card);border-radius:var(--r-md);
+  padding:clamp(22px,2.4vw,32px);margin:0 0 var(--gap);
+  break-inside:avoid;-webkit-column-break-inside:avoid;
+}
+.review-stars{color:#F5B301;font-size:15px;letter-spacing:.14em;margin-bottom:15px}
+.review q{display:block;margin:0 0 20px;font-size:15px;line-height:1.55;color:var(--white)}
+.review footer{display:flex;align-items:center;gap:12px}
+.review-face{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;background:var(--card-3)}
+.review footer b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;color:var(--grey)}
+.review-role{display:block;margin-top:3px;font-size:12.5px;color:var(--grey-2)}
+.review-src,.review footer a{
+  display:block;margin-top:4px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--grey-2);
+}
+.review footer a:hover{color:var(--accent)}
+@media(max-width:1000px){.reviews{columns:2}}
+@media(max-width:640px){.reviews{columns:1}}
+
+/* stat riding beside the nav CTA, as on the reference */
+.nav-stat{margin-left:auto;margin-right:14px;font-size:13px;color:var(--grey);white-space:nowrap}
+@media(max-width:900px){.nav-stat{display:none}}
+.hero .sub{max-width:52ch}
+
+/* the worked-example money row, and the note that shows its arithmetic */
+.rcell dt sup{font-size:.8em;vertical-align:super;line-height:0}
+.rgrid-note{
+  margin:clamp(20px,2.2vw,30px) auto 0;max-width:86ch;text-align:center;
+  font-size:12.5px;line-height:1.55;color:var(--grey);
+}
+.rgrid-note sup{color:var(--accent)}
+
+.rgrid-note b{color:var(--accent);font-weight:700}
+
+/* the offer, read as a statement rather than body copy */
+.offer-line{
+  margin:0;max-width:34ch;font-weight:600;
+  font-size:clamp(22px,2.6vw,38px);line-height:1.28;letter-spacing:-.03em;
+  color:var(--grey);text-wrap:balance;
+}
+.offer-line{max-width:none}
+.offer-line b{font-weight:600;color:var(--white)}
+
+.offer-line .num{color:var(--accent);font-weight:700}

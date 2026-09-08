@@ -33,4 +33,21 @@ text, scripts = re.subn(r'(src)="(js/[^"?]+)(?:\?v=[0-9a-f]+)?"', stamp, text)
 text, images = re.subn(r'(src)="(assets/img/[^"?]+)(?:\?v=[0-9a-f]+)?"', stamp, text)
 
 html.write_text(text)
-print(f"stamped {styles} stylesheet, {scripts} script, {images} image links")
+
+# The JSON the page fetches needs the same treatment: those URLs live inside
+# app.js, so an edited review sat behind a cached file until the script itself
+# happened to change.
+script = root / "js" / "app.js"
+code = script.read_text()
+
+
+def stamp_fetch(match):
+    rel = match.group(1)
+    d = digest(rel)
+    return match.group(0) if d is None else f'fetch("{rel}?v={d}")'
+
+
+code, data = re.subn(r'fetch\("(data/[^"?]+)(?:\?v=[0-9a-f]+)?"\)', stamp_fetch, code)
+script.write_text(code)
+
+print(f"stamped {styles} stylesheet, {scripts} script, {images} image, {data} data links")

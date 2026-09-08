@@ -156,7 +156,7 @@
      appears for a case the moment someone puts sourced figures in it. */
   var metricSlots = document.querySelectorAll(".phase-metrics");
   if (metricSlots.length) {
-    fetch("data/results.json")
+    fetch("data/results.json?v=9a97fe4c")
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data) return;
@@ -174,6 +174,75 @@
         });
       })
       .catch(function () { /* no numbers, no strip */ });
+  }
+
+  /* What the gap is worth, worked out on the visitor's own three numbers.
+     The lift is the median of the measured cases, applied to their revenue —
+     the arithmetic is theirs, so there is nothing to take on trust. */
+  var calcSessions = document.getElementById("in-sessions");
+  if (calcSessions) {
+    var LIFT = 0.13;
+    var calcCvr = document.getElementById("in-cvr");
+    var calcPrice = document.getElementById("in-price");
+    var money = function (n) {
+      return "$" + Math.round(n).toLocaleString("en-US");
+    };
+    var runCalc = function () {
+      var sessions = +calcSessions.value;
+      var cvr = +calcCvr.value / 10;
+      var price = +calcPrice.value;
+      var now = sessions * (cvr / 100) * price;
+      var after = now * (1 + LIFT);
+
+      document.getElementById("c-sessions").textContent = sessions.toLocaleString("en-US");
+      document.getElementById("c-cvr").textContent = cvr.toFixed(1) + "%";
+      document.getElementById("c-price").textContent = money(price);
+      document.getElementById("o-now").textContent = money(now);
+      document.getElementById("o-after").textContent = money(after);
+      document.getElementById("o-gap").textContent = money(after - now);
+      document.getElementById("o-year").textContent = money((after - now) * 12) + " a year";
+    };
+    [calcSessions, calcCvr, calcPrice].forEach(function (el) {
+      el.addEventListener("input", runCalc);
+    });
+    runCalc();
+  }
+
+  /* Reviews come from data/reviews.json. The file starts empty and an empty
+     file hides the whole section: one named seller with a link someone can
+     open is worth more than five anonymous cards nobody can check. */
+  var reviewSlot = document.getElementById("reviews");
+  var reviewSection = document.getElementById("reviews-sec");
+  if (reviewSlot && reviewSection) {
+    fetch("data/reviews.json?v=516bc1e0")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        var rows = data && data.reviews;
+        if (!rows || !rows.length) return;
+        reviewSlot.innerHTML = rows.map(function (v) {
+          var n = Math.max(0, Math.min(5, Math.round(Number(v.stars) || 0)));
+          var stars = n
+            ? '<div class="review-stars" aria-label="' + n + ' out of 5">' +
+              new Array(n + 1).join("★") + "</div>"
+            : "";
+          /* most of these arrived over WhatsApp, so there is nothing to link
+             to: the source is stated as plain text rather than faked as one */
+          var src = v.href
+            ? '<a href="' + v.href + '" target="_blank" rel="noopener noreferrer">' +
+              (v.source || "See it") + "</a>"
+            : v.source ? '<span class="review-src">via ' + v.source + "</span>" : "";
+          var face = v.avatar
+            ? '<img class="review-face" src="' + v.avatar + '" alt="" ' +
+              'width="88" height="88" loading="lazy" decoding="async">'
+            : "";
+          var role = v.role ? '<span class="review-role">' + v.role + "</span>" : "";
+          return '<article class="review rv in">' + stars + "<q>" + v.quote + "</q>" +
+                 "<footer>" + face + "<div><b>" + v.name + "</b>" + role + src +
+                 "</div></footer></article>";
+        }).join("");
+        reviewSection.hidden = false;
+      })
+      .catch(function () { /* no reviews, no section */ });
   }
 
   /* accent preview switcher, temporary review tool */
